@@ -10,39 +10,44 @@ namespace Intive_Patronage.Controllers
     {
         // GET: api/<ValuesController>
         [HttpGet("AllBooks")]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> GetAllBooks()
         {
             return new string[] { "value1", "value2" };
         }
 
         [HttpGet("AllAuthors")]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> GetAllAuthors()
         {
             return new string[] { "value2", "value2" };
         }
 
         // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("AuthorName/")]
+        public string GetAuthorByName(string authorName)
         {
             return "value";
         }
 
         // POST api/<ValuesController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("CreateAuthor")]
+        public void PostCreateAuthor([FromBody] string value)
+        {
+        }
+
+        [HttpPost("CreateBook")]
+        public void PostCreateBook([FromBody] string value)
         {
         }
 
         // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("UpdateBook")]
+        public void PutUpdateBook(int id, [FromBody] string value)
         {
         }
 
         // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("DeleteBook")]
+        public void DeleteBook(int id)
         {
         }
     }
