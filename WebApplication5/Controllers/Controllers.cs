@@ -30,7 +30,18 @@ namespace Intive_Patronage.Controllers
 
         // POST api/<ValuesController>
         [HttpPost("CreateAuthor")]
-        public void PostCreateAuthor([FromBody] string value)
+        public void PostCreateAuthor([FromBody] AuthorDTO request)
+        {
+            AuthorModel author = new AuthorModel();
+            author.Gender = request.Gender;
+            author.lastName = request.lastName;
+            author.firstName = request.firstName;
+            author.birthDate = request.birthDate;
+            try
+            {
+                _bookContext.authorModels.Add(author);
+            }
+            catch (Exception)
         {
         }
 
