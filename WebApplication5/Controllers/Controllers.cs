@@ -4,15 +4,21 @@
 
 namespace Intive_Patronage.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class Controllers : ControllerBase
     {
         // GET: api/<ValuesController>
-        [HttpGet]
+        [HttpGet("AllBooks")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        [HttpGet("AllAuthors")]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value2", "value2" };
         }
 
         // GET api/<ValuesController>/5
