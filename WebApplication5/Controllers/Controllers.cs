@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Intive_Patronage.DTO;
+using Intive_Patronage.Models;
+using Intive_Patronage.SQL;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,6 +11,12 @@ namespace Intive_Patronage.Controllers
     [ApiController]
     public class Controllers : ControllerBase
     {
+        private BookContext _bookContext;
+        public Controllers(BookContext bookContext) 
+        {
+            _bookContext = bookContext;
+        }
+
         // GET: api/<ValuesController>
         [HttpGet("AllBooks")]
         public IEnumerable<string> GetAllBooks()
@@ -40,9 +49,13 @@ namespace Intive_Patronage.Controllers
             try
             {
                 _bookContext.authorModels.Add(author);
+                _bookContext.SaveChanges();
             }
             catch (Exception)
-        {
+            {
+                throw;
+            }
+            
         }
 
         [HttpPost("CreateBook")]
