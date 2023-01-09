@@ -10,8 +10,8 @@ namespace Intive_Patronage.SQL
 
         }
         
-        public DbSet<AuthorModel> authorModels { get; set; }
-        public DbSet<BookModel> bookModels { get; set; }
-        public DbSet<BookAuthorModel> bookAuthorModels { get; }
+        public DbSet<AuthorModel> Author { get; set; }
+        public DbSet<BookModel> Book { get; set; }
+        public DbSet<BookAuthorModel> BookAuthor { get; }
     }
 }

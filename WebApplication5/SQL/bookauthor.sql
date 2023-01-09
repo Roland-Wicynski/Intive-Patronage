@@ -1,7 +1,7 @@
-USE [Book]
+USE [Book1]
 GO
 
-/****** Object:  Table [dbo].[BookAuthor]    Script Date: 1/8/2023 11:19:09 PM ******/
+/****** Object:  Table [dbo].[BookAuthor]    Script Date: 1/9/2023 11:52:39 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -27,5 +27,3 @@ GO
 
 ALTER TABLE [dbo].[BookAuthor] CHECK CONSTRAINT [Intermediate table Author]
 GO
-
-

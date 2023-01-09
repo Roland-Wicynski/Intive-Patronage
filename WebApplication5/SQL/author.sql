@@ -1,7 +1,7 @@
-USE [Book]
+USE [Book1]
 GO
 
-/****** Object:  Table [dbo].[Author]    Script Date: 1/8/2023 11:15:21 PM ******/
+/****** Object:  Table [dbo].[Author]    Script Date: 1/9/2023 11:51:51 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Author](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[FirstName] [nvarchar](50) NOT NULL,
 	[LastName] [nvarchar](50) NOT NULL,
 	[BirthDate] [datetime2](7) NOT NULL,
@@ -20,5 +20,4 @@ CREATE TABLE [dbo].[Author](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-
 
