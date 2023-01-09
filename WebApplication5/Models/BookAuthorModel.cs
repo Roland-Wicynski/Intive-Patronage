@@ -1,6 +1,12 @@
-﻿namespace Intive_Patronage.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Intive_Patronage.Models
 {
-    public class Class
+    [Keyless]
+    public class BookAuthorModel
     {
+        public int? bookId { get; }
+        public string? authorId { get; }
     }
 }

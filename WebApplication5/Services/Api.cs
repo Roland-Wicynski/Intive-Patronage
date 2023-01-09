@@ -1,6 +1,7 @@
 ﻿namespace Intive_Patronage.Services
 {
-    public class Class
+    public class Api
     {
+
     }
 }
