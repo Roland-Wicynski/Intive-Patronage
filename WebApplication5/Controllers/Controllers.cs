@@ -63,6 +63,14 @@ namespace Intive_Patronage.Controllers
             author.lastName = request.lastName;
             author.firstName = request.firstName;
             author.birthDate = request.birthDate;
+
+            for (int i = 0; i < request.bookId.Count(); i++)
+            {
+                author.bookAuthor[i].bookId = request.bookId[i];
+            }
+            var i = new Guid();
+
+
             try
             {
                 _bookContext.Author.Add(author);

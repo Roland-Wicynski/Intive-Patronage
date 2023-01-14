@@ -12,6 +12,20 @@ namespace Intive_Patronage.SQL
         
         public DbSet<AuthorModel> Author { get; set; }
         public DbSet<BookModel> Book { get; set; }
-        public DbSet<BookAuthorModel> BookAuthor { get; }
+        public DbSet<BookAuthorModel> BookAuthor { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BookAuthorModel>()
+                .HasKey(bc => new { bc.bookId, bc.authorId });
+            modelBuilder.Entity<BookAuthorModel>()
+                .HasOne(bc => bc.book)
+                .WithMany(b => b.bookAuthor)
+                .HasForeignKey(bc => bc.bookId);
+            modelBuilder.Entity<BookAuthorModel>()
+                .HasOne(bc => bc.author)
+                .WithMany(c => c.bookAuthor)
+                .HasForeignKey(bc => bc.authorId);
+        }
+
     }
 }

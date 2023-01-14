@@ -10,5 +10,6 @@ namespace Intive_Patronage.Models
         public decimal rating { get; set; }
         public string iSBN { get; set; }
         public DateTime publicationDate { get; set; }
+        public IList<BookAuthorModel> bookAuthor { get; set; }
     }
 }
