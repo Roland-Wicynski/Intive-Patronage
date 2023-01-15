@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "5f6f40ae-88bf-4e14-98d8-2edc58da8582",
+		"name": "Roland Wicynski .net Patronage 2023 collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create an author – POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"birthDate\": \"2023-01-15T19:57:37.799Z\",\r\n  \"gender\": true,\r\n  \"bookId\": [\r\n    0\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7209/api/CreateAuthor",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7209",
+					"path": [
+						"api",
+						"CreateAuthor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a book – POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"string\",\r\n  \"description\": \"string\",\r\n  \"rating\": 0,\r\n  \"isbn\": \"string\",\r\n  \"publicationDate\": \"2023-01-15T19:58:35.955Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7209/api/CreateBook",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7209",
+					"path": [
+						"api",
+						"CreateBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read all books – GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7209/api/AllBooks",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7209",
+					"path": [
+						"api",
+						"AllBooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read all authors – GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7209/api/AllAuthors",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7209",
+					"path": [
+						"api",
+						"AllAuthors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authors search by name - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7209/api/searchAuthor/{searchText}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7209",
+					"path": [
+						"api",
+						"searchAuthor",
+						"{searchText}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a book – PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"title\": \"string\",\r\n  \"description\": \"string\",\r\n  \"rating\": 0,\r\n  \"isbn\": \"string\",\r\n  \"publicationDate\": \"2023-01-15T19:59:05.843Z\",\r\n  \"authorId\": [\r\n    0\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7209/api/UpdateBook",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7209",
+					"path": [
+						"api",
+						"UpdateBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a book – DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7209/api/DeleteBook/{id}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7209",
+					"path": [
+						"api",
+						"DeleteBook",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search book – GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7209/api/searchBook/{searchText}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7209",
+					"path": [
+						"api",
+						"searchBook",
+						"{searchText}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
