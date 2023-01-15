@@ -1,5 +1,6 @@
 using Intive_Patronage.SQL;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 internal class Program
 {
@@ -18,14 +19,18 @@ internal class Program
         builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
-
+        using (var scope = app.Services.CreateScope())
+        {
+            var bookContext = scope.ServiceProvider.GetRequiredService<BookContext>();
+            // use context
+            bookContext.Database.EnsureCreated();
+        }
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
         app.UseHttpsRedirection();
 
         //app.UseAuthorization();

@@ -59,27 +59,20 @@ namespace Intive_Patronage.Controllers
         public IActionResult PostCreateAuthor([FromBody] AuthorDTO request)
         {
             AuthorModel author = new AuthorModel();
-            author.gender = request.gender;
-            author.lastName = request.lastName;
-            author.firstName = request.firstName;
-            author.birthDate = request.birthDate;
-
-            for (int i = 0; i < request.bookId.Count(); i++)
-            {
-                author.bookAuthor[i].bookId = request.bookId[i];
-            }
-            var i = new Guid();
-
+            author.Gender = request.Gender;
+            author.LastName = request.LastName;
+            author.FirstName = request.FirstName;
+            author.BirthDate = request.BirthDate;
 
             try
             {
                 _bookContext.Author.Add(author);
                 _bookContext.SaveChanges();
-                return Ok();
+                return Ok(author.Id);
             }
             catch (Exception)
             {
-                return StatusCode(500,"popsulo sie");
+                return StatusCode(500,"Something went wrong");
             }
             
         }
@@ -88,16 +81,16 @@ namespace Intive_Patronage.Controllers
         public IActionResult PostCreateBook([FromBody] BookDTO request)
         {
             BookModel book = new BookModel();
-            book.title = request.title;
-            book.description = request.description;
-            book.rating = request.rating;
-            book.iSBN = request.iSBN;
-            book.publicationDate =  request.publicationDate;
+            book.Title = request.Title;
+            book.Description = request.Description;
+            book.Rating = request.Rating;
+            book.ISBN = request.ISBN;
+            book.PublicationDate =  request.PublicationDate;
             try
             {
                 _bookContext.Book.Add(book);
                 _bookContext.SaveChanges();
-                return Ok();
+                return Ok(book.Id);
             }
             catch (Exception)
             {
@@ -107,18 +100,38 @@ namespace Intive_Patronage.Controllers
 
         // PUT api/<ValuesController>/5
         [HttpPut("UpdateBook")]
-        public IActionResult PutUpdateBook([FromBody] BookModel request)
+        public IActionResult PutUpdateBook([FromBody] BookUpdateDTO request)
         {
             var book = _bookContext.Book.Find(request.Id);
             if (book == null)
             {
-                return StatusCode(500);
+                return StatusCode(404, "Book ID not found");
             }
-                book.title = request.title;
-                book.description = request.description;
-                book.rating = request.rating;
-                book.iSBN = request.iSBN;
-                book.publicationDate = request.publicationDate;
+                book.Title = request.Title;
+                book.Description = request.Description;
+                book.Rating = request.Rating;
+                book.ISBN = request.ISBN;
+                book.PublicationDate = request.PublicationDate;
+            foreach(var author in request.AuthorId) 
+            {
+                if (_bookContext.Author.Find(author) == null)
+                    { 
+                    return StatusCode(404,"Author ID not Found");
+                }
+                BookAuthorModel bookAuthor = new BookAuthorModel();
+                bookAuthor.AuthorId = author;
+                bookAuthor.BookId = book.Id;
+                try
+                {
+                    _bookContext.BookAuthor.Add(bookAuthor);
+                    _bookContext.SaveChanges();
+                }
+                catch(Exception) 
+                {
+                    return StatusCode(500);
+                }
+
+            }
             try
             {
                 _bookContext.Book.Entry(book).State = EntityState.Modified;

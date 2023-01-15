@@ -1,15 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿namespace Intive_Patronage.Models
 
-namespace Intive_Patronage.Models
 {
-    [Keyless]
     public class BookAuthorModel
     {
-        public int bookId { get; set; }
-        public int authorId { get; set; }
+        public int BookId { get; set; }
+        public int AuthorId { get; set; }
 
-        public BookModel book { get; set; }
-
-        public AuthorModel author { get; set;}
+        public BookModel Book { get; set; }
+        public AuthorModel Author { get; set; }
     }
 }

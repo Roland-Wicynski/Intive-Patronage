@@ -11,6 +11,5 @@ namespace Intive_Patronage.DTO
     public decimal rating { get; set; }
     public string iSBN { get; set; }
     public DateTime publicationDate { get; set; }
-    public IList<int> authorId { get; set; }
     }
 }

@@ -10,6 +10,6 @@ namespace Intive_Patronage.DTO
         public string lastName { get; set; }
         public DateTime birthDate { get; set; }
         public bool gender { get; set; }
-        public IList<int> bookId { get; set; } 
+        public IList<int> BookId { get; set; } 
     }
 }
