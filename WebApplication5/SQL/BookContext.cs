@@ -23,7 +23,7 @@ namespace Intive_Patronage.SQL
                 .HasForeignKey(bc => bc.bookId);
             modelBuilder.Entity<BookAuthorModel>()
                 .HasOne(bc => bc.author)
-                .WithMany(c => c.bookAuthor)
+                .WithMany(c => c.bookId)
                 .HasForeignKey(bc => bc.authorId);
         }
 
