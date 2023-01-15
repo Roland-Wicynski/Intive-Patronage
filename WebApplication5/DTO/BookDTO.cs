@@ -6,10 +6,10 @@ namespace Intive_Patronage.DTO
 {
     public class BookDTO
     {
-    public string title { get; set; }
-    public string description { get; set; }
-    public decimal rating { get; set; }
-    public string iSBN { get; set; }
-    public DateTime publicationDate { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public decimal Rating { get; set; }
+    public string ISBN { get; set; }
+    public DateTime PublicationDate { get; set; }
     }
 }

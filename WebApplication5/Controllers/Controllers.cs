@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Intive_Patronage.Controllers
 {
@@ -19,7 +18,6 @@ namespace Intive_Patronage.Controllers
             _bookContext = bookContext;
         }
 
-        // GET: api/<ValuesController>
         [HttpGet("AllBooks")]
         public IActionResult GetAllBooks()
         {
@@ -35,7 +33,6 @@ namespace Intive_Patronage.Controllers
             return Ok(author);
         }
 
-        // GET api/<ValuesController>/5
         [HttpGet("searchAuthor/{authorName}")]
         public IEnumerable<AuthorModel> GetAuthorByName(string authorName)
         {
@@ -54,7 +51,6 @@ namespace Intive_Patronage.Controllers
             return results;
         }
 
-        // POST api/<ValuesController>
         [HttpPost("CreateAuthor")]
         public IActionResult PostCreateAuthor([FromBody] AuthorDTO request)
         {
@@ -98,7 +94,6 @@ namespace Intive_Patronage.Controllers
             }
         }
 
-        // PUT api/<ValuesController>/5
         [HttpPut("UpdateBook")]
         public IActionResult PutUpdateBook([FromBody] BookUpdateDTO request)
         {
@@ -145,7 +140,6 @@ namespace Intive_Patronage.Controllers
 
         }
 
-        // DELETE api/<ValuesController>/5
         [HttpDelete("DeleteBook/{id}")]
         public IActionResult DeleteBook(int id)
         {

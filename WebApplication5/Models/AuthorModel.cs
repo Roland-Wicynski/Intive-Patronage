@@ -8,10 +8,12 @@ namespace Intive_Patronage.Models
     {
         [Key]
         public int Id { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public DateTime birthDate { get; set; }
-        public bool gender { get; set; }
+        [MaxLength(50)]
+        public string FirstName { get; set; }
+        [MaxLength(50)]
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public bool Gender { get; set; }
 
         //public IList<BookModel> book { get; set; }
     }

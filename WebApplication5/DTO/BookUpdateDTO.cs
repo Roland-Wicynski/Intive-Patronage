@@ -7,12 +7,12 @@ namespace Intive_Patronage.DTO
     public class BookUpdateDTO
     {
         [Required]
-        public int Id { get; }
-        public string title { get; set; }
-        public string description { get; set; }
-        public decimal rating { get; set; }
-        public string iSBN { get; set; }
-        public DateTime publicationDate { get; set; }
+        public int Id { get; set;  }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public decimal Rating { get; set; }
+        public string ISBN { get; set; }
+        public DateTime PublicationDate { get; set; }
         public IList<int> AuthorId { get; set; }
     }
 }

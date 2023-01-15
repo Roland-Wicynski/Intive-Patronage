@@ -6,10 +6,10 @@ namespace Intive_Patronage.DTO
 {
     public class AuthorDTO
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public DateTime birthDate { get; set; }
-        public bool gender { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public bool Gender { get; set; }
         public IList<int> BookId { get; set; } 
     }
 }

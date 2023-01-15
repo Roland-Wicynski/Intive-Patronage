@@ -1,6 +1,5 @@
 ﻿using Intive_Patronage.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Intive_Patronage.SQL
 
@@ -20,9 +19,6 @@ namespace Intive_Patronage.SQL
         protected override void
         OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BookModel>()
-                .Property(a=>a.title).HasMaxLength(100);
-
             modelBuilder.Entity<BookAuthorModel>()
                 .HasKey(x => new { x.BookId, x.AuthorId });
         }

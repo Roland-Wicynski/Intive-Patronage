@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Intive_Patronage.Models
@@ -7,12 +8,13 @@ namespace Intive_Patronage.Models
     {
         [Key]
         public int Id { get; set; }
-
-        public string title { get; set; }
-        public string description { get; set; }
-        public decimal rating { get; set; }
-        public string iSBN { get; set; }
-        public DateTime publicationDate { get; set; }
+        [MaxLength(100)]
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public decimal Rating { get; set; }
+        [MaxLength(13)]
+        public string ISBN { get; set; }
+        public DateTime PublicationDate { get; set; }
         //public IList<AuthorModel> author { get; set; }
     }
 }
