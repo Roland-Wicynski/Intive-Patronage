@@ -14,7 +14,5 @@ namespace Intive_Patronage.Models
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public bool Gender { get; set; }
-
-        //public IList<BookModel> book { get; set; }
     }
 }

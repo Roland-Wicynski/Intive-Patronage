@@ -33,10 +33,11 @@ internal class Program
         }
         app.UseHttpsRedirection();
 
-        //app.UseAuthorization();
+        app.UseAuthorization();
 
-        app.MapControllers();
+        app.MapControllers().RequireHost("*.8080");
 
         app.Run();
+        
     }
 }

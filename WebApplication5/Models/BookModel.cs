@@ -15,6 +15,5 @@ namespace Intive_Patronage.Models
         [MaxLength(13)]
         public string ISBN { get; set; }
         public DateTime PublicationDate { get; set; }
-        //public IList<AuthorModel> author { get; set; }
     }
 }
